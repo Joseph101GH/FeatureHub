@@ -87,6 +87,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="InverseBooleanConverter.cs" />
+    <Compile Include="ProportionalWidthConverter.cs" />
     <Compile Include="TimerItem.cs" />
     <Compile Include="UserControls\Feature1Control.xaml.cs">
       <DependentUpon>Feature1Control.xaml</DependentUpon>
