@@ -1,28 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FeatureHub
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void Feature1Button_Click(object sender, RoutedEventArgs e)
+        {
+            LoadFeature1();
+        }
+
+        private void Feature2Button_Click(object sender, RoutedEventArgs e)
+        {
+            LoadFeature2();
+        }
+
+        private void Feature3Button_Click(object sender, RoutedEventArgs e)
+        {
+            LoadFeature3();
+        }
+
+        private void LoadFeature1()
+        {
+            var content = new Feature1Control();
+            MainContent.Children.Clear();
+            MainContent.Children.Add(content);
+        }
+
+        private void LoadFeature2()
+        {
+            var content = new Feature2Control();
+            MainContent.Children.Clear();
+            MainContent.Children.Add(content);
+        }
+
+        private void LoadFeature3()
+        {
+            var content = new Feature3Control();
+            MainContent.Children.Clear();
+            MainContent.Children.Add(content);
+        }
+
     }
 }
