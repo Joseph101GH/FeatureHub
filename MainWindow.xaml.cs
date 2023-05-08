@@ -46,5 +46,19 @@ namespace FeatureHub
             MainContent.Children.Add(content);
         }
 
+        private void Feature4Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Feature5Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void HistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

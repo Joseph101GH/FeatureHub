@@ -2,44 +2,13 @@
           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
           Background="#fdfcfa">
-    <UserControl.Resources>
-        <Style x:Key="RoundedComboBoxStyle" TargetType="ComboBox">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ComboBox">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Border x:Name="BackgroundBorder" Grid.ColumnSpan="2" Background="{TemplateBinding Background}" CornerRadius="5" />
-                            <ToggleButton x:Name="ToggleButton" Grid.Column="1" Width="40" Height="40" Margin="0" Background="Transparent" BorderBrush="Transparent" 
-                                       IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding SelectionBoxItem}" 
-                                           Margin="10, 0, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                            <Popup x:Name="Popup" Grid.ColumnSpan="2" Placement="Bottom" 
-                                IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide">
-                                <Border x:Name="PopupBorder" Background="{TemplateBinding Background}" CornerRadius="5" 
-                                     BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}">
-                                    <ScrollViewer x:Name="ScrollViewer" VerticalScrollBarVisibility="Auto" MaxHeight="200">
-                                        <ItemsPresenter />
-                                    </ScrollViewer>
-                                </Border>
-                            </Popup>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/BigClock.jpg"/>
+            <ImageBrush ImageSource="/Images/BigClock.jpg" Opacity="0.2"/>
         </Grid.Background>
         <StackPanel HorizontalAlignment="Center">
             <TextBlock x:Name="TimeDisplay" FontSize="68" FontWeight="Bold" Margin="10" TextAlignment="Center" Foreground="#242931"/>
-            <ComboBox x:Name="TimeZoneComboBox" Margin="10" Style="{StaticResource RoundedComboBoxStyle}" SelectionChanged="TimeZoneComboBox_SelectionChanged" 
-                   Background="#1d6d80" Foreground="#242931" FontSize="48" SelectedIndex="0">
+            <ComboBox x:Name="TimeZoneComboBox" Margin="10" SelectionChanged="TimeZoneComboBox_SelectionChanged" Background="#1d6d80" Foreground="#242931" FontSize="48" SelectedIndex="0">
                 <ComboBoxItem Content="Brussels"/>
                 <ComboBoxItem Content="UTC"/>
                 <ComboBoxItem Content="CEST"/>
