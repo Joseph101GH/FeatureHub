@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -32,6 +33,7 @@ namespace FeatureHub
             }
             TimersListView.Items.Refresh();
         }
+
 
         private void StartTimeTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -74,16 +76,20 @@ namespace FeatureHub
         {
             StartButton.IsEnabled = !string.IsNullOrEmpty(DescriptionTextBox.Text);
         }
-      
+
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
             if (((FrameworkElement)sender).Tag is TimerItem timerItem && timerItem.IsActive)
             {
                 timerItem.IsActive = false;
                 UpdateEndTimeAndDuration(timerItem);
-            }
 
+                // Calculate total duration of all stopped timers
+                var totalDuration = _timerItems.Where(ti => !ti.IsActive).Sum(ti => ti.TotalMinutes);
+                TotalTimeTextBlock.Text = $"Total: {TimeSpan.FromMinutes(totalDuration):hh\\:mm}";
+            }
         }
+
 
 
         private TimeSpan RoundUpToNearest(TimeSpan value, TimeSpan roundingInterval)
