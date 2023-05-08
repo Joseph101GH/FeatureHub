@@ -1,0 +1,21 @@
+﻿<Window x:Class="FeatureHub.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FeatureHub" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Background="LightGray">
+            <Button x:Name="Feature1Button" Content="Feature 1" Margin="5" Click="Feature1Button_Click"/>
+            <Button x:Name="Feature2Button" Content="Feature 2" Margin="5" Click="Feature2Button_Click"/>
+            <Button x:Name="Feature3Button" Content="Feature 3" Margin="5" Click="Feature3Button_Click"/>
+        </StackPanel>
+
+        <Grid Grid.Column="1" x:Name="MainContent">
+            <!-- Content for the main window will be loaded here -->
+        </Grid>
+    </Grid>
+</Window>
