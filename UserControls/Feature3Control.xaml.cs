@@ -112,6 +112,20 @@ namespace FeatureHub
             return new TimeSpan(ticks * roundingInterval.Ticks);
         }
 
+        private void TimersListView_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var listViewWidth = TimersListView.ActualWidth;
+            var gridView = ((GridView)TimersListView.View);
+
+            gridView.Columns[0].Width = listViewWidth * 0.35; // 25% of the ListView width
+            gridView.Columns[1].Width = listViewWidth * 0.10; // 15% of the ListView width
+            gridView.Columns[2].Width = listViewWidth * 0.10; // 15% of the ListView width
+            gridView.Columns[3].Width = listViewWidth * 0.10; // 15% of the ListView width
+            gridView.Columns[4].Width = listViewWidth * 0.10; // 15% of the ListView width
+            gridView.Columns[5].Width = listViewWidth * 0.1;  // 10% of the ListView width
+            gridView.Columns[6].Width = listViewWidth * 0.1;  // 10% of the ListView width
+        }
+
 
         private void UpdateEndTimeAndDuration(TimerItem item)
         {
