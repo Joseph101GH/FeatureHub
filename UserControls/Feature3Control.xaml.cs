@@ -29,10 +29,14 @@ namespace FeatureHub
         {
             foreach (var timerItem in _timerItems)
             {
-                UpdateEndTimeAndDuration(timerItem);
+                if (!timerItem.IsPaused)
+                {
+                    UpdateEndTimeAndDuration(timerItem);
+                }
             }
             TimersListView.Items.Refresh();
         }
+
 
 
         private void StartTimeTextBox_LostFocus(object sender, RoutedEventArgs e)
@@ -57,6 +61,9 @@ namespace FeatureHub
             }
         }
 
+
+
+
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             TimerItem newItem = new TimerItem
@@ -71,10 +78,14 @@ namespace FeatureHub
             DescriptionTextBox.Focus(); // Set focus to the TextBox after the Start button is clicked
         }
 
-
-        private void DescriptionTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
-            StartButton.IsEnabled = !string.IsNullOrEmpty(DescriptionTextBox.Text);
+            var timerItem = ((Button)sender).Tag as TimerItem;
+
+            if (timerItem != null && timerItem.IsActive)
+            {
+                timerItem.IsPaused = !timerItem.IsPaused;
+            }
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
@@ -90,7 +101,10 @@ namespace FeatureHub
             }
         }
 
-
+        private void DescriptionTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            StartButton.IsEnabled = !string.IsNullOrEmpty(DescriptionTextBox.Text);
+        }
 
         private TimeSpan RoundUpToNearest(TimeSpan value, TimeSpan roundingInterval)
         {

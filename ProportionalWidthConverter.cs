@@ -9,9 +9,9 @@ namespace FeatureHub
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            double listViewWidth = (double)values[0];
-            double factor = System.Convert.ToDouble(parameter);
-            double totalFactors = values.Skip(1).Sum(x => System.Convert.ToDouble(x));
+            var listViewWidth = (double)values[0];
+            var factor = System.Convert.ToDouble(parameter);
+            var totalFactors = values.Skip(1).Sum(x => System.Convert.ToDouble(x));
             return (listViewWidth - 100) * factor / totalFactors; // 100 is the fixed width for the "Stop" column
         }
 
