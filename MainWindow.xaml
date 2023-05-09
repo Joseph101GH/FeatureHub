@@ -8,23 +8,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}">
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Background" Value="#1d6d80"/>
-            <Setter Property="Foreground" Value="#fdfefd"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#e0443c"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
