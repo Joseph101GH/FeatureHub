@@ -17,8 +17,8 @@
                 <Setter Property="Padding" Value="10,5"/>
                 <Setter Property="FontSize" Value="18"/>
                 <!-- Set the Material Design theme primary color as the default background color -->
-                <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}"/>
-                <Setter Property="Foreground" Value="#fdfefd"/>
+                <Setter Property="Background" Value="#f3ebdf"/>
+                <Setter Property="Foreground" Value="#643d3a"/>
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="BorderBrush" Value="Transparent"/>
                 <Setter Property="Cursor" Value="Hand"/>

@@ -1,34 +1,69 @@
 ﻿<Window x:Class="FeatureHub.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="FeatureHub" Height="720" Width="1080"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="FeatureHub" Height="720" Width="1080"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="Transparent" 
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
-        FontFamily="{materialDesign:MaterialDesignFont}">
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        WindowStyle="None" AllowsTransparency="True">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+<Border CornerRadius="10" BorderBrush="{DynamicResource MaterialDesignBody}" BorderThickness="1" Background="{DynamicResource MaterialDesignPaper}">
+    <!-- Added a border here -->
+        <Grid ClipToBounds="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0" Background="#242931">
-            <Button x:Name="Feature1Button" Content="GUID Checker" Click="Feature1Button_Click"/>
-            <Button x:Name="Feature2Button" Content="TimeZone" Click="Feature2Button_Click"/>
-            <Button x:Name="Feature3Button" Content="Work Timers" Click="Feature3Button_Click"/>
-            <Button x:Name="Feature4Button" Content="Hours Converter" Click="Feature4Button_Click"/>
-            <Button x:Name="Feature5Button" Content="HoursWorked" Click="Feature5Button_Click"/>
-        </StackPanel>
+        <!-- Custom Title Bar -->
+            <Grid Background="#a64c51">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-        <StackPanel VerticalAlignment="Bottom">
-            <Button x:Name="History" Content="History" Click="HistoryButton_Click" VerticalAlignment="Bottom"/>
-        </StackPanel>
+            <Label x:Name="TitleBar" Content="FeatureHub" FontSize="20" FontWeight="Bold" Foreground="{DynamicResource MaterialDesignBody}" VerticalAlignment="Center" Margin="10,0,0,0" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown"/>
 
-        <Grid Grid.Column="1" x:Name="MainContent" Background="#fdfefd">
-            <!-- Content for the main window will be loaded here -->
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button x:Name="MinimizeButton" Click="MinimizeButton_Click" Margin="0,0,10,0" Background="Transparent" Foreground="Black">
+                    <materialDesign:PackIcon Kind="WindowMinimize" />
+                </Button>
+                <Button x:Name="MaximizeButton" Click="MaximizeButton_Click" Margin="0,0,10,0" Background="Transparent" Foreground="Black">
+                    <materialDesign:PackIcon Kind="WindowMaximize" />
+                </Button>
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Margin="0,0,10,0" Background="Transparent" Foreground="Black">
+                    <materialDesign:PackIcon Kind="Close" />
+                </Button>
+            </StackPanel>
         </Grid>
-    </Grid>
+
+
+        <!-- Original Content -->
+            <Grid Grid.Row="1"  ClipToBounds="True" Background="#a64c51">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Background="#f0ad56">
+                <Button x:Name="Feature1Button" Content="GUID Checker" Click="Feature1Button_Click"/>
+                <Button x:Name="Feature2Button" Content="TimeZone" Click="Feature2Button_Click"/>
+                <Button x:Name="Feature3Button" Content="Work Timers" Click="Feature3Button_Click"/>
+                <Button x:Name="Feature4Button" Content="Hours Converter" Click="Feature4Button_Click"/>
+                <Button x:Name="Feature5Button" Content="HoursWorked" Click="Feature5Button_Click"/>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Bottom">
+                <Button x:Name="History" Content="History" Click="HistoryButton_Click" VerticalAlignment="Bottom"/>
+            </StackPanel>
+                <Grid Grid.Column="1" x:Name="MainContent" Background="#a64c51">
+                    <!-- Content for the main window will be loaded here -->
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+    <!-- Border ends here -->
 </Window>
